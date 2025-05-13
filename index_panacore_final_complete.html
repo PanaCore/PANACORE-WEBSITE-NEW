@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PANACORE Inc.</title>
+  <style>
+    :root {
+      --primary: #0d1b2a;
+      --secondary: #f1e8d9;
+      --accent: #d9822b;
+      --light: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: var(--light); color: #000; }
+    header {
+      background: var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; margin-right: 10px; }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+      padding: 4rem 1rem;
+      text-align: center;
+      color: var(--secondary);
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .section {
+      background: var(--primary);
+      color: var(--secondary);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .section p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.5;
+    }
+    .logos {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .logos a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: var(--primary);
+      color: var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 2rem;
+      font-size: 0.9rem;
+      border-top: 2px solid #cfa869;
+    }
+    footer .col {
+      flex: 1;
+      min-width: 150px;
+      margin-bottom: 1rem;
+    }
+    footer .col a {
+      color: var(--secondary);
+      text-decoration: none;
+      display: block;
+      margin: 0.4rem 0;
+    }
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      z-index: 1000;
+      width: 90%;
+      max-width: 500px;
+    }
+    .form-popup input,
+    .form-popup select,
+    .form-popup textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.7rem;
+    }
+    .form-popup button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+    }
+    .form-popup .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    #thank-you {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+    }
+    @media (max-width: 768px) {
+      header, footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a { margin: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://i.imgur.com/Gmdui1y.png" alt="logo" />
+      <h2>PANACORE</h2>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Building quality, from concept to remodeling</h1>
+    <p>Exceptional craftsmanship and meticulous attention to detail. Our home renovation exceeded our expectations!</p>
+    <button class="btn" onclick="document.getElementById('quote-form').style.display='block'">Get a Quote</button>
+  </section>
+
+  <section class="section">
+    <h2>Customer Reviews</h2>
+    <p>Exceptional craftsmanship and meticulous attention to detail. Our home renovation exceeded our expectations!</p>
+    <div class="logos">
+      <a href="#">Trustpilot</a>
+      <a href="#">Customer Reviews</a>
+      <a href="#">Yelp</a>
+      <a href="#">Google</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="col">
+      <strong>PANACORE INC.</strong>
+    </div>
+    <div class="col">
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+      <div>Email: info@panacore.com</div>
+      <div>Phone: (123) 456-7890</div>
+    </div>
+  </footer>
+
+  <div class="form-popup" id="quote-form">
+    <span class="close" onclick="document.getElementById('quote-form').style.display='none'">&times;</span>
+    <form onsubmit="showThankYou(); return false;">
+      <input type="text" placeholder="First Name" required />
+      <input type="text" placeholder="Last Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="text" placeholder="Home Address" required />
+      <select required>
+        <option value="">Select Subject</option>
+        <option>Kitchen Remodeling</option>
+        <option>Bathroom Renovation</option>
+        <option>Floor Installation</option>
+        <option>Full Home Upgrade</option>
+      </select>
+      <textarea placeholder="Additional Details"></textarea>
+      <input type="file" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="thank-you">
+    <h2>Thank you!</h2>
+    <p>Your request has been received. We’ll contact you shortly.</p>
+  </div>
+
+  <script>
+    function showThankYou() {
+      document.getElementById('quote-form').style.display = 'none';
+      document.getElementById('thank-you').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
