@@ -5,248 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PANACORE</title>
     <style>
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1a252f;
-            color: #f4e1b3;
-            direction: ltr;
+            line-height: 1.6;
+            color: #333;
         }
+        
+        /* Header */
         header {
-            background-color: #f5e8c7;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-        header .logo img {
-            height: 40px;
-            margin-left: 10px;
-        }
-        header h2 {
-            color: #1a252f;
-            font-size: 1.5em;
-        }
-        nav a {
-            color: #1a252f;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .main-section {
-            background: url('https://via.placeholder.com/1200x600') no-repeat center; /* جایگزین با تصویر اصلی */
-            background-size: cover;
-            padding: 50px 20px;
-            text-align: left;
-            color: #f4e1b3;
-            position: relative;
-        }
-        .main-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .main-section h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-        .main-section p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .btn {
-            background-color: #f4a261;
-            color: #1a252f;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-        }
-        .reviews-section {
-            padding: 20px;
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
-            background-color: #1a252f;
         }
-        .reviews-section h2 {
-            font-size: 2em;
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
             margin-bottom: 10px;
         }
-        .reviews-section p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .reviews-section .links img {
-            height: 20px;
-            margin: 0 10px;
-        }
-        footer {
-            background-color: #1a252f;
-            padding: 20px;
-            text-align: left;
-            color: #f4e1b3;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        footer h3 {
-            margin-bottom: 10px;
-        }
-        footer a {
-            color: #f4e1b3;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .hidden { display: none; }
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+        
+        nav ul {
             display: flex;
             justify-content: center;
-            align-items: center;
+            list-style: none;
         }
-        .modal-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            width: 90%;
-            max-width: 500px;
-            color: #1a252f;
+        
+        nav ul li {
+            margin: 0 15px;
         }
-        .modal-content input, .modal-content textarea {
-            width: 100%;
-            margin: 10px 0;
-            padding: 8px;
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
         }
-        .modal-content button {
-            background-color: #f4a261;
-            border: none;
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
             padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .reviews {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .reviews a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #f0f0f0;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        .close {
+            float: right;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="https://via.placeholder.com/40x40?text=Logo" alt="Panacore Logo">
-            <h2>PANACORE</h2>
-        </div>
+        <div class="logo">PANACORE</div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="services-link">Services</a></li>
+                <li><a href="#" id="projects-link">Projects</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="main-section">
-        <h1>Building quality, from concept to remodeling</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Building quality, from concept to remodeling</h2>
         <p>Exceptional craftsmanship and meticulous attention to detail. Our home renovation exceeded our expectations!</p>
-        <a href="#quote" class="btn" onclick="showModal('quote-modal')">Get a Quote</a>
-    </section>
-
-    <section class="reviews-section">
-        <h2>Customer Reviews</h2>
-        <p>Exceptional craftsmanship and meticulous attention to detail. Our home renovation exceeded our expectations!</p>
-        <div class="links">
-            <img src="https://via.placeholder.com/20x20?text=T" alt="Trustpilot">
-            <img src="https://via.placeholder.com/20x20?text=CR" alt="Customer Reviews">
-            <img src="https://via.placeholder.com/20x20?text=Y" alt="Yelp">
-            <img src="https://via.placeholder.com/20x20?text=G" alt="Google">
+        
+        <div class="buttons">
+            <a href="#" class="btn" id="quote-btn">Get a Quote</a>
+            <a href="#" class="btn" id="reviews-btn">Customer Reviews</a>
+        </div>
+        
+        <div class="reviews">
+            <a href="#" id="trustpilot-link">Trustpilot</a>
+            <a href="#" id="customer-reviews-link">Customer Reviews</a>
+            <a href="#" id="yelp-link">yelp</a>
+            <a href="#" id="google-link">Google</a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <h3>PANACORE INC.</h3>
-        <div>
-            <a href="#about" onclick="showModal('about-modal')">About Us</a>
-            <a href="#contact" onclick="showModal('contact-modal')">Contact Us</a>
+        <div class="footer-links">
+            <a href="#" id="about-link">About Us</a>
+            <a href="#" id="contact-link">Contact us</a>
         </div>
-        <div>
-            <a href="mailto:info@panacore.com"><img src="https://via.placeholder.com/15x15?text=Email" alt="Email"> info@panacore.com</a>
-            <a href="tel:(123)456-7890"><img src="https://via.placeholder.com/15x15?text=Phone" alt="Phone"> (123) 456-7890</a>
+        
+        <div class="contact-info">
+            <p id="email">info@panacre.com</p>
+            <p id="phone">(123) 456-7890</p>
         </div>
+        
+        <p>PANACORE INC.</p>
     </footer>
 
-    <!-- فرم Get a Quote -->
-    <div id="quote-modal" class="modal hidden">
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
         <div class="modal-content">
+            <span class="close">&times;</span>
             <h2>Get a Quote</h2>
-            <form id="quote-form">
-                <input type="text" placeholder="First Name" required>
-                <input type="text" placeholder="Last Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="text" id="address" placeholder="Home Address" required>
-                <input type="text" placeholder="Subject (What do you want done?)" required>
-                <textarea placeholder="Additional Details (Optional)"></textarea>
-                <input type="file" name="attachment">
+            <form id="quoteForm">
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div>
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div>
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea id="description" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="attachment">Attach File:</label>
+                    <input type="file" id="attachment">
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 
-    <!-- فرم Contact Us -->
-    <div id="contact-modal" class="modal hidden">
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
         <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="checkmark.png" alt="Success" style="width:100px; display:block; margin:0 auto;">
+            <h2 style="text-align:center;">Thank You!</h2>
+            <p style="text-align:center;">We'll get back to you as soon as possible.</p>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
             <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Your Message"></textarea>
+            <form id="contactForm">
+                <div>
+                    <label for="contactName">Name:</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div>
+                    <label for="contactEmail">Email:</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div>
+                    <label for="contactSubject">Subject:</label>
+                    <input type="text" id="contactSubject" required>
+                </div>
+                <div>
+                    <label for="contactMessage">Message:</label>
+                    <textarea id="contactMessage" rows="4" required></textarea>
+                </div>
                 <button type="submit">Send</button>
             </form>
         </div>
     </div>
 
-    <!-- بخش About Us -->
-    <div id="about-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2>About Us</h2>
-            <p>Panacore Inc. is a leading remodeling company based in California, dedicated to providing top-notch services.</p>
-        </div>
-    </div>
-
-    <!-- پیام موفقیت -->
-    <div id="success-modal" class="modal hidden">
-        <div class="modal-content">
-            <img src="https://via.placeholder.com/200x100?text=Success" alt="Success">
-            <p>In the shortest possible time, your request will be processed!</p>
-        </div>
-    </div>
-
     <script>
-        function showModal(modalId) {
-            document.querySelectorAll('.modal').forEach(modal => modal.classList.add('hidden'));
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-
-        document.getElementById('quote-form').addEventListener('submit', function(e) {
+        // DOM Elements
+        const quoteBtn = document.getElementById('quote-btn');
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteForm = document.getElementById('quoteForm');
+        const successModal = document.getElementById('successModal');
+        const contactBtn = document.getElementById('contact-link');
+        const contactModal = document.getElementById('contactModal');
+        const closeButtons = document.querySelectorAll('.close');
+        
+        // Open Quote Modal
+        quoteBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            showModal('success-modal');
-            // برای ارسال ایمیل به no-reply@panacoreinc.com نیاز به بک‌اند داری
+            quoteModal.style.display = 'block';
         });
+        
+        // Open Contact Modal
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            contactModal.style.display = 'block';
+        });
+        
+        // Close Modals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                quoteModal.style.display = 'none';
+                successModal.style.display = 'none';
+                contactModal.style.display = 'none';
+            });
+        });
+        
+        // Submit Quote Form
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the data to a server
+            quoteModal.style.display = 'none';
+            successModal.style.display = 'block';
+            
+            // Simulate email sending
+            setTimeout(() => {
+                successModal.style.display = 'none';
+            }, 3000);
+        });
+        
+        // Close when clicking outside modal
+        window.addEventListener('click', function(e) {
+            if (e.target === quoteModal) {
+                quoteModal.style.display = 'none';
+            }
+            if (e.target === successModal) {
+                successModal.style.display = 'none';
+            }
+            if (e.target === contactModal) {
+                contactModal.style.display = 'none';
+            }
+        });
+        
+        // Note: For production, you would need:
+        // 1. Backend to handle form submissions (PHP, Node.js, etc.)
+        // 2. Email service integration
+        // 3. Address verification API (like Google Maps)
+        // 4. Dynamic content loading for Projects and Services
     </script>
 </body>
 </html>
